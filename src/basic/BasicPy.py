@@ -7,7 +7,7 @@ def method1():
     while a < 1:
         print(a, end=",")
         break
-
+ifconf
 # invoke a method
 #method1()
 
