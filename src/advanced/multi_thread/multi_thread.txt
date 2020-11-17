@@ -1,0 +1,14 @@
+"""
+    Python多线程编程：
+        常用的两个模块：
+            _thread：thread在python3中被废弃，重名了为_thread
+            threading：推荐使用
+        使用线程的两种方式：
+            函数：
+                _thread.start_new_thread(function, args[,kwargs])
+                function:线程函数
+                args：传递给线程函数的参数，必须是tuple类型
+                kwargs: 可选参数
+            类包装的线程对象
+
+"""
