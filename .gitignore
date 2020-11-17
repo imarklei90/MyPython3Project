@@ -130,6 +130,6 @@ dmypy.json
 
 
 # imi 
-.idea/*.imi
-.idea/misc.xml
+.idea/
+.vscode/
 
