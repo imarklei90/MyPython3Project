@@ -45,6 +45,35 @@ def itempipeline(item):
     db.close()
 
 
+def itempipeline2(item: dict):
+    """
+        存储数据
+        将数据存储到MYSQL中
+    """
+
+    # 获取连接
+    db = pymysql.connect(host='192.168.28.41', port=3306, user='apt', password='apt1234!@#$',
+                         database='test')
+
+    # 获取cursor
+    db_cursor = db.cursor()
+
+    # 字段名: id,title,author,content
+    # values占位符: $(id)s,$(title)s,$(author)s,$(content)s
+    sql = 'INSERT INTO gushici(%s) values(%s)'
+    fields = ",".join(item.keys())
+    value_placeholders = ",".join(['%%(%s)s' % key for key in item])
+
+    db_cursor.execute(sql % (fields, value_placeholders), item)
+
+    # 提交操作
+    db.commit()
+
+    # 关闭连接
+    db_cursor.close()
+    db.close()
+
+
 def parse(text):
     root = etree.HTML(text)
     divs = root.xpath('//div[@class="left"]/div[@class="sons"]')
@@ -54,7 +83,7 @@ def parse(text):
         item['title'] = div.xpath('.//p[1]//text()')[0]
         item['author'] = " ".join(div.xpath('.//p[2]/a//text()'))
         item['content'] = '<br>'.join(div.xpath('.//div[@class="contson"]/text()'))
-        itempipeline(item)
+        itempipeline2(item)
 
 
 def get(url):
