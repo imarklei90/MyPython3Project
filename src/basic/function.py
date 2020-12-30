@@ -58,4 +58,37 @@ B()
 
 print(a)
 
-print()
+
+print("---------------------函数参数----------------------")
+# 位置参数
+def user_info(name, age, gender):
+    print(f'姓名：{name}, 年龄：{age} , 性别：{gender}')
+
+user_info("张三", 20, '男')
+
+# 关键字参数: 函数调用时，如果有位置参数，位置参数必须在关键字参数的前面，但是关键字参数之间没有顺序关系
+user_info(age=100, gender='女', name='zhangsan')
+
+# 缺省参数:位置参数必须在缺省参数的前面
+def user_info_default(name, age, gender='男'):
+    print(f'姓名:{name}, 年龄:{age}, 性别：{gender}')
+
+user_info_default('zhangsan', 12)
+
+# 不定长参数：都是组包的过程，包括；
+# 包裹位置传递: 所有的参数被args收集，根据传进参数的位置合并为一个元组
+# 包裹关键字传递: 所有的参数被kwargs收集，根据传进的参数合并为一个字典
+
+
+def user_infos(*agrs):
+    print(agrs)
+
+user_infos(1)
+user_infos(1,2,3)
+
+def user_infos2(**kwargs):
+    print(kwargs)
+
+user_infos2()
+user_infos2(name='zhangsan', age=10)
+
