@@ -92,3 +92,24 @@ def user_infos2(**kwargs):
 user_infos2()
 user_infos2(name='zhangsan', age=10)
 
+print("---------------------拆包----------------------")
+
+
+def return_value():
+    return 100, 200
+
+# 元组拆包
+num1, num2 = return_value()
+print(num1)
+print(num2)
+
+dict1 = {'name': 'zhangsan', 'age': 20}
+
+# 字典拆包: 取出来的是key
+k1, k2 = dict1
+print(k1)
+print(k2)
+
+print(dict1[k1])
+print(dict1[k2])
+
