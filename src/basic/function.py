@@ -34,3 +34,28 @@ if __name__ == '__main__':
     result2 = method2('aaa')
     # 可以调用str类型的所有方法
     print(result2.upper())
+
+
+print("---------------------修改全局变量的值----------------------")
+
+# 全局变量
+a = 100
+
+
+def A():
+    print(a)
+
+
+def B():
+    # 声明变量a为全局变量
+    global a
+    a = 200
+    print(a)
+
+
+A()
+B()
+
+print(a)
+
+print()
